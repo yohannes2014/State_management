@@ -6,7 +6,7 @@ const Form = () => {
   return (
     <>
         <div>{myName}</div>
-        <input type='text' onChange={handleChange} />
+        <input type='text' value={myName} onChange={handleChange} />
     </>
     
   )

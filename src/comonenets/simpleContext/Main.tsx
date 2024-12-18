@@ -23,7 +23,7 @@ const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
         <p>This is simple useContext typescript</p>
           <Header />
           <Home />
-          <input name='value' onChange={handleChange} type='text' />
+          <input name='value' value={myName} onChange={handleChange} type='text' />
           <Button onClick={handleSwitch}>{isOn ? 'On':'Off'}</Button>
       </userContext.Provider>
     </Container>

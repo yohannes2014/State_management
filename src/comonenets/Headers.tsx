@@ -11,6 +11,12 @@ const Headers = () => {
         <NavLink to='/simpleContext' >
          Simple Context
         </NavLink>
+        <NavLink to='/count' >
+         Cart
+        </NavLink>
+        <NavLink to='/regist' >
+         Regist
+        </NavLink>
       
     </Container>
   )
