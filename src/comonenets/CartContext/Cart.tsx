@@ -16,7 +16,7 @@ const Cart:React.FC = () => {
  }
 
   return (
-    <cartContext.Provider value={{handleAdd, handleRemove, count, add}} >
+    <cartContext.Provider value={{handleAdd,  handleRemove, count, add}} >
         
         <CartHeader />
         <CartList />

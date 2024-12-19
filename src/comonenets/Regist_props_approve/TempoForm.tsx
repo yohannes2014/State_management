@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import { Button, Form, FormControl } from 'react-bootstrap'
-import { tempoRegister, registerd } from './types'
+import { registerd } from './types'
 import TempoList from './TempoList';
 import Employees from './Employees';
 
 const TempoForm: React.FC = () => {
-    const [input, setInput] = useState<tempoRegister>({
+    const [input, setInput] = useState<registerd>({
+        id:0,
         name: '',
-        phone: ''
+        phone: '',
+        approve:false
     });
 
     const [list, setList] = useState<registerd[]>([])
     const [approved, setApproved] = useState<registerd[]>([])
+    const [update, setUpdate] = useState<boolean>(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -28,7 +31,7 @@ const TempoForm: React.FC = () => {
         }
 
         setList([...list, form]);
-        setInput({ name: '', phone: '' });
+        setInput({ id:0, name: '', phone: '', approve:false });
 
     }
     const removeHandler = (id: number) => {
@@ -54,6 +57,13 @@ const TempoForm: React.FC = () => {
         setApproved(approved.filter((item) => item.id !== event.id))
     }
 
+const handleUpdate = () => {
+    const updatedList = approved.map((item)=>item.id === input.id ? {item, ...input} : item);
+    setApproved(updatedList);
+    setUpdate(false);
+    setInput({id:0, name:'', phone:'', approve:false});
+}
+   
     return (
         <div>
             <Form onSubmit={handleSubmit}>
@@ -77,6 +87,11 @@ const TempoForm: React.FC = () => {
                     key={item.id}
                     approve={item}
                     toRemove={() => handleRemove(item)}
+                    setInput={setInput}
+                    handleUpdate={handleUpdate}
+                    setUpdate={setUpdate}
+                    update={update}
+                   
                 />
             ))}
         </div>

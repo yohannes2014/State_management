@@ -1,10 +1,7 @@
-export interface tempoRegister {
+export interface registerd {
+    id:number;
     name:string;
     phone:string;
-}
-
-export interface registerd extends tempoRegister {
-    id:number;
     approve:boolean;
 }
 
@@ -19,4 +16,10 @@ export interface ApproverProps {
     
     approve:registerd;
     toRemove: () => void;
+    setInput: React.Dispatch<React.SetStateAction<registerd>>;
+    handleUpdate: () => void;
+    setUpdate: React.Dispatch<React.SetStateAction<boolean>>;
+    update:boolean;
+
+    
 }

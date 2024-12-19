@@ -1,11 +1,14 @@
-import React from 'react'
-import Home from './pages/Home'
+import React from 'react';
+import AllRoutes from './routes/AllRoutes';
+import { Container } from 'react-bootstrap';
+import Headers from './comonenets/Headers';
 
 const App:React.FC = () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <Container>
+      <Headers />
+     <AllRoutes />
+    </Container>
   )
 }
 
